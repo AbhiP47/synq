@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# IDE Configuration
+.idea/
+.vscode/tailwind.exe
