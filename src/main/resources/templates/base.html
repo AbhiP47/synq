@@ -13,7 +13,7 @@
         synq
     </title>
 </head>
-<body class="dark:bg-gray-800 dark:text-white">
+<body class="dark:bg-gray-800 dark:text-white bg-gray-100">
 <div data-th-replace="navbar :: navbar">
 
 </div>
@@ -21,9 +21,9 @@
     <section data-th-replace="${content}">
     </section>
 </div>
-<footer class="p-4">
-    Footer: This is SYNQ
-</footer>
+<!--<footer class="p-4">-->
+<!--    Footer: This is SYNQ-->
+<!--</footer>-->
 <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 <script data-th-src="@{'/js/script.js'}"></script>
 <th:block data-th-replace = "${script}"></th:block>
