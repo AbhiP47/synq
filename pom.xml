@@ -57,15 +57,10 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- FIX 2: REMOVED DUPLICATE DEPENDENCIES for postgresql and thymeleaf -->
-
 	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- FIX 3: REMOVED the entire maven-compiler-plugin configuration. -->
-			<!-- The Spring Boot parent POM handles Lombok's annotation processing automatically and correctly. -->
-			<!-- Manually configuring it can lead to conflicts and IDE errors like the one you're seeing. -->
 
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

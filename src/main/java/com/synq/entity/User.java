@@ -35,6 +35,7 @@ public class User {
     private boolean phoneVerified = false;
 
     // signUp using self, google, github , linkedin, etc.
+    @Enumerated(value= EnumType.STRING)
     private Provider provider = Provider.SELF;
     private String providerId;
 
