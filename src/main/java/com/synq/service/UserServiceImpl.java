@@ -1,21 +1,25 @@
 package com.synq.service;
 
+import com.synq.helpers.AppConstants;
 import com.synq.helpers.ResourceNotFoundException;
 import com.synq.entity.User;
 import com.synq.repository.UserRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-
 @Service
 public class UserServiceImpl implements  UserService{
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -23,6 +27,9 @@ public class UserServiceImpl implements  UserService{
     public User saveUser(User user) {
         String userId = UUID.randomUUID().toString();
         user.setId(userId);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoleList(List.of(AppConstants.ROLE_USER));
+        logger.info(user.getProvider().toString());
         return userRepo.save(user);
     }
 
