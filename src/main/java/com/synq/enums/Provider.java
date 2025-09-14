@@ -3,5 +3,5 @@ package com.synq.enums;
 public enum Provider {
     SELF,
     GOOGLE,
-    GITHUB
+    LINKEDIN, GITHUB
 }

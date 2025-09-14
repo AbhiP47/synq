@@ -25,13 +25,8 @@ public class PageController {
         return "redirect:/home";
     }
     @RequestMapping("/home")
-    public String home(Model model)
+    public String home()
     {
-        // sending data to view
-        model.addAttribute("name","Abhinav");
-        model.addAttribute("course","B.Tech");
-        model.addAttribute("gitrepo","https://github.com/chotabheeeeem/journalApp/blob/springbootv3/src/main/java/net/engineeringdigest/journalApp/config/SpringSecurity.java");
-        System.out.println("Home page handler");
         return "home";
     }
 

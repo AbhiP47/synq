@@ -25,8 +25,6 @@ public class UserServiceImpl implements  UserService{
 
     @Override
     public User saveUser(User user) {
-        String userId = UUID.randomUUID().toString();
-        user.setId(userId);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoleList(List.of(AppConstants.ROLE_USER));
         logger.info(user.getProvider().toString());
@@ -34,7 +32,7 @@ public class UserServiceImpl implements  UserService{
     }
 
     @Override
-    public Optional<User> getUserById(String id) {
+    public Optional<User> getUserById(Long id) {
         return userRepo.findById(id);
     }
 
@@ -56,13 +54,13 @@ public class UserServiceImpl implements  UserService{
     }
 
     @Override
-    public void deleteUser(String id) {
+    public void deleteUser(Long id) {
         User user = userRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("User not found"));
         userRepo.delete(user);
     }
 
     @Override
-    public boolean isUserExist(String userId) {
+    public boolean isUserExist(Long userId) {
         User user = userRepo.findById(userId).orElse(null);
         return user != null ? true : false;
     }

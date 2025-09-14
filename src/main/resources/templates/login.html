@@ -17,6 +17,13 @@
             Start managing your contacts on the cloud easily!
         </p>
 
+        <div class=" text-red-600 text-center my-3" th:if ="${param.error}">
+            Invalid username and password.
+        </div>
+        <div class="text-green-600 text-center my-3" th:if="${param.logout}">
+            You have been logged out.
+        </div>
+
         <form  method="post" th:action="@{/authenticate}" >
             <div class="mb-5">
                 <label for="email" class="block mb-2 text-sm font-semibold text-gray-800 dark:text-gray-200">Your Email</label>
@@ -41,6 +48,28 @@
             </div>
 
         </form>
+
+        <div class="social-button-container flex justify-center mt-10">
+            <a href="/oauth2/authorization/google"
+               class="flex items-center justify-center w-full px-5 py-3 text-base font-medium text-center
+          bg-amber-300 border border-gray-300 rounded-lg shadow-sm
+          text-gray-700 hover:bg-gray-50
+          dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-700
+          transition duration-200 ease-in-out">
+                <img class="w-5 h-5 mr-3" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google logo">
+                Login with Google
+            </a>
+        </div>
+        <div class="social-button-container flex justify-center mt-4"> <a href="/oauth2/authorization/linkedin"
+                                                                          class="flex items-center justify-center w-full px-5 py-3 text-base font-medium text-center
+  bg-amber-300 border border-gray-300 rounded-lg shadow-sm
+  text-gray-700 hover:bg-gray-50
+  dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-700
+  transition duration-200 ease-in-out">
+            <img class="w-5 h-5 mr-3" src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn logo">
+            Login with LinkedIn
+        </a>
+        </div>
     </div>
     </div>
 </div>

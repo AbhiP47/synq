@@ -23,12 +23,13 @@ import java.util.stream.Collectors;
 @Table(name="users")
 public class User implements UserDetails {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(name="user_name",nullable = false)
     private String name;
     @Column(nullable = false)
     private String email;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String password;
     @Column(length = 1000)
     private String about;

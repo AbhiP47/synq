@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>User Profile</title>
 </head>
 <body>
+<div id="content">
+    <div class="block max-w-2xl p-8 mx-auto bg-white border rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <h1 class="text-3xl font-bold text-center text-gray-800 dark:text-white">
+            User Profile
+        </h1>
 
+        <div th:if="${user}" class="mt-8 text-center">
+
+            <img th:src="${user.profilePic}" alt="User Profile Picture" class="w-32 h-32 mx-auto rounded-full shadow-lg mb-4 border-4 border-blue-500">
+
+            <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200" th:text="${user.name}">
+                Abhinav Panwar
+            </h2>
+
+            <p class="text-lg text-gray-500 dark:text-gray-400" th:text="${user.email}">
+                abhinav@example.com
+            </p>
+
+        </div>
+
+        <div th:unless="${user}" class="mt-8 text-center">
+            <p class="text-red-500">Could not load user information.</p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    console.log("User profile page loaded");
+</script>
 </body>
 </html>
